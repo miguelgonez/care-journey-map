@@ -57,7 +57,7 @@ const BPMNNode = ({ data, selected }) => {
   }
 
   // End Event (círculo doble)
-  if (data.bpmn_type === 'end_event') {
+  if (bpmnType === 'end_event') {
     return (
       <div className={nodeClass} data-testid={`bpmn-node-end-event`}>
         <Handle 
