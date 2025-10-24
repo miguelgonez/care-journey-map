@@ -3,6 +3,7 @@ import '@xyflow/react/dist/style.css';
 import './App.css';
 import PatientJourneyDesigner from './components/PatientJourneyDesigner';
 import Sidebar from './components/Sidebar';
+import AnalyticsDashboard from './components/AnalyticsDashboard';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -13,6 +14,7 @@ function App() {
   const [currentJourney, setCurrentJourney] = useState(null);
   const [templates, setTemplates] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [showAnalytics, setShowAnalytics] = useState(false);
 
   useEffect(() => {
     loadJourneys();
