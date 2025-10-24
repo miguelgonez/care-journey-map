@@ -83,7 +83,7 @@ const BPMNNode = ({ data, selected }) => {
           color: '#1A1A1A',
           fontWeight: '500'
         }}>
-          END
+          FIN
         </div>
       </div>
     );
