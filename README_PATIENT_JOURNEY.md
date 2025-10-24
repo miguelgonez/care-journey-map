@@ -62,6 +62,31 @@ Cada nodo captura información según mejores prácticas:
 - **Auto-guardado** con indicador de cambios pendientes
 - **Exportar a JSON** para compartir o respaldo
 
+### 📈 **Dashboard de Analítica (NUEVO)**
+Basado en mejores prácticas de NEJM AI para optimización de workflows clínicos:
+
+#### **Métricas & KPIs**
+- Tiempo de revisión de historia clínica
+- Tiempo a primer contacto
+- Adherencia a guías clínicas
+- Satisfacción del paciente
+- Estados visuales: On track, At risk, Critical
+
+#### **Brechas de Atención (Care Gaps)**
+Sistema de alertas basado en guidelines:
+- **Alta severidad**: Intervenciones críticas faltantes (ej: ICD en HCM)
+- **Media severidad**: Tratamientos retrasados (ej: anticoagulación en FA)
+- **Baja severidad**: Screening familiar pendiente
+- Referencias a guidelines: AHA/ACC, ESC, etc.
+- Acciones recomendadas específicas
+
+#### **Outcomes Clínicos**
+Tracking de resultados medibles con tendencias:
+- **Mortalidad**: Reducción de 74% documentada en estudios con Viz PE
+- **Readmisión**: Monitoreo de tasas a 30 días
+- **Tiempo a Tratamiento**: De 4 horas a 6 minutos (caso TriHealth)
+- **Satisfacción**: Patient experience scoring
+
 ### 🎯 Plantillas Predefinidas
 1. **Journey Básico de Paciente Ambulatorio**
    - Flujo estándar con 5 etapas
