@@ -3,7 +3,25 @@ import { Handle, Position } from '@xyflow/react';
 
 // BPMN 2.0 compliant node component
 const BPMNNode = ({ data, selected }) => {
-  const nodeClass = `bpmn-node bpmn-${data.bpmn_type} ${selected ? 'selected' : ''}`;
+  // Support both bpmn_type (new) and stage_type (legacy)
+  const nodeType = data.bpmn_type || data.stage_type || data.type || 'task';
+  const nodeClass = `bpmn-node bpmn-${nodeType} ${selected ? 'selected' : ''}`;
+
+  // Map legacy types to BPMN types
+  const mapLegacyType = (type) => {
+    const mapping = {
+      registration: 'task',
+      consultation: 'task',
+      diagnosis: 'task',
+      treatment: 'task',
+      followup: 'task',
+      discharge: 'task',
+      custom: 'task'
+    };
+    return mapping[type] || type;
+  };
+
+  const bpmnType = mapLegacyType(nodeType);
 
   // Start Event (círculo simple)
   if (data.bpmn_type === 'start_event') {
