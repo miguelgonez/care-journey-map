@@ -20,6 +20,9 @@ class Journey(Base):
     description = Column(Text, nullable=True)
     nodes_data = Column(Text, nullable=False)  # JSON string
     edges_data = Column(Text, nullable=False)  # JSON string
+    care_gaps_data = Column(Text, nullable=True, default="[]")  # JSON string
+    metrics_data = Column(Text, nullable=True, default="[]")  # JSON string
+    outcomes_data = Column(Text, nullable=True, default="[]")  # JSON string
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
