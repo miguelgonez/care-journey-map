@@ -69,7 +69,7 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
     [setEdges]
   );
 
-  const addNode = (type) => {
+  const addNode = (type, fhirResource = null) => {
     const newNode = {
       id: `node-${Date.now()}`,
       type: type,
@@ -79,7 +79,8 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
       },
       data: {
         label: getDefaultLabel(type),
-        stage_type: type,
+        bpmn_type: type,
+        fhir_resource: fhirResource,
         description: '',
         duration: '',
         department: '',
@@ -97,13 +98,20 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
 
   const getDefaultLabel = (type) => {
     const labels = {
-      registration: 'Registro/Admisión',
-      consultation: 'Consulta',
-      diagnosis: 'Diagnóstico',
-      treatment: 'Tratamiento',
-      followup: 'Seguimiento',
-      discharge: 'Alta',
-      custom: 'Etapa Personalizada',
+      start_event: 'Start',
+      end_event: 'End',
+      intermediate_event: 'Event',
+      task: 'Task',
+      service_task: 'Service',
+      user_task: 'User Task',
+      manual_task: 'Manual',
+      gateway_exclusive: 'XOR',
+      gateway_parallel: 'AND',
+      gateway_inclusive: 'OR',
+      clinical_assessment: 'Assessment',
+      medication_task: 'Medication',
+      procedure_task: 'Procedure',
+      appointment_task: 'Appointment',
     };
     return labels[type] || 'Nueva Etapa';
   };
