@@ -249,7 +249,18 @@ curl -X POST http://localhost:8001/api/journeys \
   - **Outcomes Clínicos**: Monitorea resultados con tendencias
 - Exporta reportes en JSON para análisis externo
 
-## 🎯 Mejores Prácticas Implementadas
+## 🎯 Mejores Prácticas Implementadas (Enhanced)
+
+### Basado en NEJM AI Insights:
+
+1. **Workflow-Integrated Analytics**: No solo mapear el journey, sino medir su efectividad
+2. **Care Gap Identification**: Sistema proactivo para identificar y cerrar brechas de atención
+3. **Guideline Adherence**: Verificación contra protocolos establecidos (AHA/ACC, ESC)
+4. **Time Metrics**: "For every hour with patients, nearly two hours on EHR" - optimizamos esto
+5. **ROI Measurement**: Métricas financieras y clínicas tangibles
+6. **Transparency**: Cada recomendación vinculada a su fuente y guideline
+
+### Tradicionales (Mantenidos):
 
 1. **Mapeo de Touchpoints**: Identifica todos los puntos de contacto paciente-sistema
 2. **Análisis Emocional**: Captura emociones del paciente en cada etapa
