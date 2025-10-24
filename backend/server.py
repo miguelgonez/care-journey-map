@@ -124,6 +124,12 @@ async def update_journey(journey_id: str, journey_update: JourneyUpdate, db: Ses
         db_journey.nodes_data = json.dumps([node.model_dump() for node in journey_update.nodes])
     if journey_update.edges is not None:
         db_journey.edges_data = json.dumps([edge.model_dump() for edge in journey_update.edges])
+    if journey_update.care_gaps is not None:
+        db_journey.care_gaps_data = json.dumps([gap.model_dump() for gap in journey_update.care_gaps])
+    if journey_update.metrics is not None:
+        db_journey.metrics_data = json.dumps([metric.model_dump() for metric in journey_update.metrics])
+    if journey_update.clinical_outcomes is not None:
+        db_journey.outcomes_data = json.dumps([outcome.model_dump() for outcome in journey_update.clinical_outcomes])
     
     db.commit()
     db.refresh(db_journey)
@@ -134,6 +140,9 @@ async def update_journey(journey_id: str, journey_update: JourneyUpdate, db: Ses
         description=db_journey.description,
         nodes=[NodeData(**node) for node in json.loads(db_journey.nodes_data)],
         edges=[EdgeData(**edge) for edge in json.loads(db_journey.edges_data)],
+        care_gaps=[CareGap(**gap) for gap in json.loads(db_journey.care_gaps_data or "[]")],
+        metrics=[Metric(**metric) for metric in json.loads(db_journey.metrics_data or "[]")],
+        clinical_outcomes=[ClinicalOutcome(**outcome) for outcome in json.loads(db_journey.outcomes_data or "[]")],
         created_at=db_journey.created_at,
         updated_at=db_journey.updated_at
     )
