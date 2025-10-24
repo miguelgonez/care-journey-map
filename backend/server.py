@@ -9,7 +9,10 @@ import uuid
 import json
 
 from database import init_db, get_db, Journey
-from models import JourneyCreate, JourneyUpdate, JourneyResponse, TemplateResponse, NodeData, EdgeData
+from models import (
+    JourneyCreate, JourneyUpdate, JourneyResponse, TemplateResponse, 
+    NodeData, EdgeData, CareGap, Metric, ClinicalOutcome
+)
 from sqlalchemy.orm import Session
 
 ROOT_DIR = Path(__file__).parent
