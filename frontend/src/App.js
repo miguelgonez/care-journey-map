@@ -101,11 +101,28 @@ function App() {
       />
       
       <div className="flex-1 flex flex-col">
-        <header className="bg-white border-b border-gray-200 px-6 py-4 shadow-sm">
+        <header style={{
+          background: '#FFFFFF',
+          borderBottom: '1px solid #E5E7EB',
+          padding: '16px 24px',
+          boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.03)'
+        }}>
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-blue-900">Patient Journey Designer</h1>
-              <p className="text-sm text-gray-600 mt-1">
+              <h1 style={{
+                fontSize: '20px',
+                fontWeight: '500',
+                color: '#1A1A1A',
+                marginBottom: '4px',
+                letterSpacing: '-0.02em'
+              }}>
+                Patient Journey Designer
+              </h1>
+              <p style={{
+                fontSize: '13px',
+                color: '#6B7280',
+                margin: 0
+              }}>
                 {currentJourney ? currentJourney.name : 'Crea o selecciona un patient journey'}
               </p>
             </div>
@@ -113,17 +130,30 @@ function App() {
               {currentJourney && (
                 <button
                   onClick={() => setShowAnalytics(true)}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 font-medium flex items-center gap-2 shadow-sm transition-all"
+                  style={{
+                    padding: '8px 16px',
+                    background: '#0A74DA',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    borderRadius: '6px',
+                    fontSize: '13px',
+                    fontWeight: '400',
+                    cursor: 'pointer',
+                    transition: 'background 0.15s ease',
+                    letterSpacing: '-0.005em'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#0860B8'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#0A74DA'}
                   data-testid="open-analytics-btn"
                 >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
                   Analítica & Métricas
                 </button>
               )}
-              <span className="text-sm text-gray-500">
-                {journeys.length} journey{journeys.length !== 1 ? 's' : ''} guardados
+              <span style={{
+                fontSize: '12px',
+                color: '#9CA3AF'
+              }}>
+                {journeys.length} journey{journeys.length !== 1 ? 's' : ''}
               </span>
             </div>
           </div>
