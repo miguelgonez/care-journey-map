@@ -24,7 +24,7 @@ const BPMNNode = ({ data, selected }) => {
   const bpmnType = mapLegacyType(nodeType);
 
   // Start Event (círculo simple)
-  if (data.bpmn_type === 'start_event') {
+  if (bpmnType === 'start_event') {
     return (
       <div className={nodeClass} data-testid={`bpmn-node-start-event`}>
         <Handle 
