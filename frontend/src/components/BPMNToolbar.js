@@ -67,7 +67,7 @@ const BPMNToolbar = ({ onAddNode }) => {
               color: '#9CA3AF',
               margin: '2px 0 0 0'
             }}>
-              Clinical Workflow Notation
+              Notación de Flujo Clínico
             </p>
           </div>
           <button
