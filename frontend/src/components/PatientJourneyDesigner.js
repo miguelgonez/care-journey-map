@@ -107,20 +107,27 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
 
   const getDefaultLabel = (type) => {
     const labels = {
-      start_event: 'Start',
-      end_event: 'End',
-      intermediate_event: 'Event',
-      task: 'Task',
-      service_task: 'Service',
-      user_task: 'User Task',
+      start_event: 'Inicio',
+      end_event: 'Fin',
+      intermediate_event: 'Evento',
+      task: 'Tarea',
+      service_task: 'Servicio',
+      user_task: 'Tarea Usuario',
       manual_task: 'Manual',
       gateway_exclusive: 'XOR',
       gateway_parallel: 'AND',
       gateway_inclusive: 'OR',
-      clinical_assessment: 'Assessment',
-      medication_task: 'Medication',
-      procedure_task: 'Procedure',
-      appointment_task: 'Appointment',
+      clinical_assessment: 'Evaluación',
+      medication_task: 'Medicación',
+      procedure_task: 'Procedimiento',
+      appointment_task: 'Cita',
+      registration: 'Registro',
+      consultation: 'Consulta',
+      diagnosis: 'Diagnóstico',
+      treatment: 'Tratamiento',
+      followup: 'Seguimiento',
+      discharge: 'Alta',
+      custom: 'Personalizado',
     };
     return labels[type] || 'Nueva Etapa';
   };
