@@ -222,11 +222,11 @@ const BPMNToolbar = ({ onAddNode }) => {
           marginBottom: '8px',
           fontWeight: '500'
         }}>
-          BPMN 2.0 Standard
+          Estándar BPMN 2.0
         </div>
         <div style={{ fontSize: '9px', color: '#9CA3AF', lineHeight: '1.5' }}>
-          ○ Start | ◉ End | ◇ Gateway<br/>
-          ▭ Task | FHIR R4 Compliant
+          ○ Inicio | ◉ Fin | ◇ Compuerta<br/>
+          ▭ Tarea | Compatible FHIR R4
         </div>
       </div>
     </div>
