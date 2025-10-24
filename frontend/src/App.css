@@ -1,94 +1,148 @@
+/* NextHealth-inspired Minimal Design System */
+
+:root {
+  /* Neutral Grays - Primary palette */
+  --color-bg-primary: #FAFBFC;
+  --color-bg-secondary: #F5F7FA;
+  --color-bg-tertiary: #FFFFFF;
+  
+  /* Text Colors */
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+  
+  /* Accent Colors - Calming & Minimal */
+  --color-accent-primary: #0A74DA;
+  --color-accent-secondary: #3A9D23;
+  --color-accent-tertiary: #7B68EE;
+  
+  /* Borders */
+  --color-border-light: #E5E7EB;
+  --color-border-medium: #D1D5DB;
+  
+  /* Status Colors - Muted */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  
+  /* Shadows - Subtle */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 4px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
 .App {
   width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
+  background: var(--color-bg-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .react-flow__node {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
 }
 
+/* Minimal Node Styling */
 .custom-node {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  min-width: 200px;
-  border: 2px solid;
-  transition: all 0.2s;
+  background: var(--color-bg-tertiary);
+  border-radius: 6px;
+  box-shadow: var(--shadow-md);
+  min-width: 180px;
+  border: 1.5px solid var(--color-border-light);
+  transition: all 0.15s ease;
 }
 
 .custom-node:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-medium);
 }
 
 .custom-node.selected {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 2px rgba(10, 116, 218, 0.1);
 }
 
+/* Minimal color coding - subtle left border accent */
 .node-registration {
-  border-color: #10b981;
-  background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
+  border-left: 3px solid #10B981;
 }
 
 .node-consultation {
-  border-color: #3b82f6;
-  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+  border-left: 3px solid #0A74DA;
 }
 
 .node-diagnosis {
-  border-color: #8b5cf6;
-  background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+  border-left: 3px solid #7B68EE;
 }
 
 .node-treatment {
-  border-color: #f59e0b;
-  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+  border-left: 3px solid #F59E0B;
 }
 
 .node-followup {
-  border-color: #06b6d4;
-  background: linear-gradient(135deg, #ecfeff 0%, #ffffff 100%);
+  border-left: 3px solid #06B6D4;
 }
 
 .node-discharge {
-  border-color: #ec4899;
-  background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+  border-left: 3px solid #EC4899;
 }
 
+/* Clean edge styling */
 .react-flow__edge-path {
-  stroke-width: 2;
+  stroke-width: 1.5;
+  stroke: var(--color-border-medium);
 }
 
 .react-flow__edge.animated path {
-  stroke-dasharray: 5;
+  stroke-dasharray: 4;
   animation: dashdraw 0.5s linear infinite;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--color-accent-primary);
 }
 
 @keyframes dashdraw {
   to {
-    stroke-dashoffset: -10;
+    stroke-dashoffset: -8;
   }
 }
 
-/* Scrollbar styling */
+/* Minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: var(--color-border-medium);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: var(--color-text-tertiary);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Minimal button styles */
+button {
+  font-weight: 400;
+  letter-spacing: -0.005em;
 }
