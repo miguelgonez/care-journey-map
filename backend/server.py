@@ -43,7 +43,10 @@ async def create_journey(journey: JourneyCreate, db: Session = Depends(get_db)):
         name=journey.name,
         description=journey.description,
         nodes_data=json.dumps([node.model_dump() for node in journey.nodes]),
-        edges_data=json.dumps([edge.model_dump() for edge in journey.edges])
+        edges_data=json.dumps([edge.model_dump() for edge in journey.edges]),
+        care_gaps_data=json.dumps([gap.model_dump() for gap in (journey.care_gaps or [])]),
+        metrics_data=json.dumps([metric.model_dump() for metric in (journey.metrics or [])]),
+        outcomes_data=json.dumps([outcome.model_dump() for outcome in (journey.clinical_outcomes or [])])
     )
     
     db.add(db_journey)
@@ -56,6 +59,9 @@ async def create_journey(journey: JourneyCreate, db: Session = Depends(get_db)):
         description=db_journey.description,
         nodes=[NodeData(**node) for node in json.loads(db_journey.nodes_data)],
         edges=[EdgeData(**edge) for edge in json.loads(db_journey.edges_data)],
+        care_gaps=[CareGap(**gap) for gap in json.loads(db_journey.care_gaps_data or "[]")],
+        metrics=[Metric(**metric) for metric in json.loads(db_journey.metrics_data or "[]")],
+        clinical_outcomes=[ClinicalOutcome(**outcome) for outcome in json.loads(db_journey.outcomes_data or "[]")],
         created_at=db_journey.created_at,
         updated_at=db_journey.updated_at
     )
