@@ -10,18 +10,25 @@ import {
   MarkerType,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import PatientJourneyNode from './PatientJourneyNode';
-import NodeToolbar from './NodeToolbar';
+import BPMNNode from './BPMNNode';
+import BPMNToolbar from './BPMNToolbar';
 import EditNodeModal from './EditNodeModal';
 
 const nodeTypes = {
-  registration: PatientJourneyNode,
-  consultation: PatientJourneyNode,
-  diagnosis: PatientJourneyNode,
-  treatment: PatientJourneyNode,
-  followup: PatientJourneyNode,
-  discharge: PatientJourneyNode,
-  custom: PatientJourneyNode,
+  start_event: BPMNNode,
+  end_event: BPMNNode,
+  intermediate_event: BPMNNode,
+  task: BPMNNode,
+  service_task: BPMNNode,
+  user_task: BPMNNode,
+  manual_task: BPMNNode,
+  gateway_exclusive: BPMNNode,
+  gateway_parallel: BPMNNode,
+  gateway_inclusive: BPMNNode,
+  clinical_assessment: BPMNNode,
+  medication_task: BPMNNode,
+  procedure_task: BPMNNode,
+  appointment_task: BPMNNode,
 };
 
 const PatientJourneyDesigner = ({ journey, onSave }) => {
