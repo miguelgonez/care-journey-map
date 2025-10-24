@@ -225,14 +225,41 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
         nodeTypes={nodeTypes}
         fitView
         attributionPosition="bottom-left"
+        style={{ background: '#FAFBFC' }}
       >
-        <Background variant="dots" gap={12} size={1} />
-        <Controls />
+        <Background 
+          variant="dots" 
+          gap={16} 
+          size={0.5}
+          color="#E5E7EB"
+        />
+        <Controls 
+          style={{
+            button: {
+              background: '#FFFFFF',
+              border: '1px solid #E5E7EB',
+              borderRadius: '4px'
+            }
+          }}
+        />
         <MiniMap
-          nodeStrokeWidth={3}
-          zoomable
-          pannable
-          style={{ backgroundColor: '#f9fafb' }}
+          nodeStrokeWidth={2}
+          nodeColor={(node) => {
+            const colors = {
+              registration: '#10B981',
+              consultation: '#0A74DA',
+              diagnosis: '#7B68EE',
+              treatment: '#F59E0B',
+              followup: '#06B6D4',
+              discharge: '#EC4899',
+            };
+            return colors[node.data.stage_type] || '#9CA3AF';
+          }}
+          maskColor="rgba(250, 251, 252, 0.8)"
+          style={{ 
+            background: '#FFFFFF',
+            border: '1px solid #E5E7EB'
+          }}
         />
       </ReactFlow>
 
