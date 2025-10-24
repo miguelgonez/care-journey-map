@@ -169,7 +169,7 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
 
   return (
     <div className="w-full h-full relative" data-testid="patient-journey-designer">
-      <NodeToolbar onAddNode={addNode} />
+      <BPMNToolbar onAddNode={addNode} />
       
       <div style={{
         position: 'absolute',
