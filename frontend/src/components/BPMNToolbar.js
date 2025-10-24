@@ -6,26 +6,26 @@ const BPMNToolbar = ({ onAddNode }) => {
 
   const bpmnElements = {
     events: [
-      { type: 'start_event', label: 'Start Event', color: '#10B981', symbol: '○' },
-      { type: 'end_event', label: 'End Event', color: '#EF4444', symbol: '◉' },
-      { type: 'intermediate_event', label: 'Intermediate Event', color: '#06B6D4', symbol: '◎' },
+      { type: 'start_event', label: 'Evento Inicio', color: '#10B981', symbol: '○' },
+      { type: 'end_event', label: 'Evento Fin', color: '#EF4444', symbol: '◉' },
+      { type: 'intermediate_event', label: 'Evento Intermedio', color: '#06B6D4', symbol: '◎' },
     ],
     tasks: [
-      { type: 'task', label: 'Task', color: '#0A74DA', symbol: '▭' },
-      { type: 'service_task', label: 'Service Task', color: '#0A74DA', symbol: '⚙' },
-      { type: 'user_task', label: 'User Task', color: '#0A74DA', symbol: '👤' },
-      { type: 'manual_task', label: 'Manual Task', color: '#0A74DA', symbol: '✋' },
+      { type: 'task', label: 'Tarea', color: '#0A74DA', symbol: '▭' },
+      { type: 'service_task', label: 'Tarea de Servicio', color: '#0A74DA', symbol: '⚙' },
+      { type: 'user_task', label: 'Tarea de Usuario', color: '#0A74DA', symbol: '👤' },
+      { type: 'manual_task', label: 'Tarea Manual', color: '#0A74DA', symbol: '✋' },
     ],
     gateways: [
-      { type: 'gateway_exclusive', label: 'Exclusive Gateway (XOR)', color: '#F59E0B', symbol: '◇×' },
-      { type: 'gateway_parallel', label: 'Parallel Gateway (AND)', color: '#7B68EE', symbol: '◇+' },
-      { type: 'gateway_inclusive', label: 'Inclusive Gateway (OR)', color: '#EC4899', symbol: '◇○' },
+      { type: 'gateway_exclusive', label: 'Compuerta Exclusiva (XOR)', color: '#F59E0B', symbol: '◇×' },
+      { type: 'gateway_parallel', label: 'Compuerta Paralela (AND)', color: '#7B68EE', symbol: '◇+' },
+      { type: 'gateway_inclusive', label: 'Compuerta Inclusiva (OR)', color: '#EC4899', symbol: '◇○' },
     ],
     clinical: [
-      { type: 'clinical_assessment', label: 'Clinical Assessment', color: '#10B981', symbol: '📋', fhir: 'Observation' },
-      { type: 'medication_task', label: 'Medication', color: '#F59E0B', symbol: '💊', fhir: 'MedicationRequest' },
-      { type: 'procedure_task', label: 'Procedure', color: '#EF4444', symbol: '🔬', fhir: 'Procedure' },
-      { type: 'appointment_task', label: 'Appointment', color: '#06B6D4', symbol: '📅', fhir: 'Appointment' },
+      { type: 'clinical_assessment', label: 'Evaluación Clínica', color: '#10B981', symbol: '📋', fhir: 'Observation' },
+      { type: 'medication_task', label: 'Medicación', color: '#F59E0B', symbol: '💊', fhir: 'MedicationRequest' },
+      { type: 'procedure_task', label: 'Procedimiento', color: '#EF4444', symbol: '🔬', fhir: 'Procedure' },
+      { type: 'appointment_task', label: 'Cita Médica', color: '#06B6D4', symbol: '📅', fhir: 'Appointment' },
     ]
   };
 
