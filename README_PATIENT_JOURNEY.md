@@ -120,25 +120,29 @@ Tracking de resultados medibles con tendencias:
 ```
 /app/
 ├── backend/
-│   ├── server.py              # FastAPI application
-│   ├── database.py            # SQLAlchemy setup + models
-│   ├── models.py              # Pydantic models
-│   ├── patient_journeys.db    # SQLite database
+│   ├── server.py              # FastAPI application with analytics endpoints
+│   ├── database.py            # SQLAlchemy setup + Journey model (enhanced)
+│   ├── models.py              # Pydantic models (NodeData, CareGap, Metric, ClinicalOutcome)
+│   ├── patient_journeys.db    # SQLite database with analytics tables
 │   └── requirements.txt       # Python dependencies
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── App.js            # Main application component
-│   │   ├── App.css           # Custom styles
+│   │   ├── App.js                     # Main application with analytics integration
+│   │   ├── App.css                    # Custom styles
 │   │   └── components/
 │   │       ├── PatientJourneyDesigner.js  # Main canvas
 │   │       ├── PatientJourneyNode.js      # Custom node component
 │   │       ├── NodeToolbar.js             # Add node toolbar
 │   │       ├── EditNodeModal.js           # Edit node modal
-│   │       └── Sidebar.js                 # Streamlit-style sidebar
+│   │       ├── Sidebar.js                 # Streamlit-style sidebar
+│   │       ├── AnalyticsDashboard.js      # 🆕 Analytics dashboard
+│   │       ├── MetricsPanel.js            # 🆕 Metrics & KPIs panel
+│   │       ├── CareGapsPanel.js           # 🆕 Care gaps identification
+│   │       └── OutcomesPanel.js           # 🆕 Clinical outcomes tracking
 │   └── package.json
 │
-└── README_PATIENT_JOURNEY.md
+└── README_PATIENT_JOURNEY.md              # This file
 ```
 
 ## 🚀 Instalación y Uso
