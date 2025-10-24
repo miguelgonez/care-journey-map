@@ -8,6 +8,27 @@ class NodeData(BaseModel):
     type: str = "default"  # registration, consultation, diagnosis, treatment, followup, discharge, custom
     position: Dict[str, float]
     data: Dict[str, Any]
+    
+class CareGap(BaseModel):
+    gap_type: str  # missing_intervention, delayed_treatment, guideline_violation
+    severity: str  # high, medium, low
+    description: str
+    guideline_reference: Optional[str] = None
+    recommended_action: str
+    
+class Metric(BaseModel):
+    metric_name: str
+    value: float
+    unit: str  # minutes, hours, days, percentage
+    target_value: Optional[float] = None
+    status: str  # on_track, at_risk, critical
+    
+class ClinicalOutcome(BaseModel):
+    outcome_type: str  # mortality_rate, readmission_rate, time_to_treatment, patient_satisfaction
+    current_value: float
+    target_value: float
+    trend: str  # improving, stable, declining
+    measurement_period: str
 
 class EdgeData(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
