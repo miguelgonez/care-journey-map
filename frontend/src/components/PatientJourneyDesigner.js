@@ -15,6 +15,7 @@ import BPMNToolbar from './BPMNToolbar';
 import EditNodeModal from './EditNodeModal';
 
 const nodeTypes = {
+  // BPMN 2.0 Standard Elements
   start_event: BPMNNode,
   end_event: BPMNNode,
   intermediate_event: BPMNNode,
@@ -29,6 +30,14 @@ const nodeTypes = {
   medication_task: BPMNNode,
   procedure_task: BPMNNode,
   appointment_task: BPMNNode,
+  // Legacy compatibility
+  registration: BPMNNode,
+  consultation: BPMNNode,
+  diagnosis: BPMNNode,
+  treatment: BPMNNode,
+  followup: BPMNNode,
+  discharge: BPMNNode,
+  custom: BPMNNode,
 };
 
 const PatientJourneyDesigner = ({ journey, onSave }) => {
