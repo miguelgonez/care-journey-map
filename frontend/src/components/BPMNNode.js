@@ -149,7 +149,7 @@ const BPMNNode = ({ data, selected }) => {
   }
 
   // Gateway Parallel (rombo con +)
-  if (data.bpmn_type === 'gateway_parallel') {
+  if (bpmnType === 'gateway_parallel') {
     return (
       <div className={nodeClass} data-testid={`bpmn-node-gateway-parallel`}>
         <Handle 
