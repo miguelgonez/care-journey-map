@@ -5,9 +5,25 @@ import uuid
 
 class NodeData(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    type: str = "default"  # registration, consultation, diagnosis, treatment, followup, discharge, custom
+    type: str = "task"  # BPMN 2.0 types: task, start_event, end_event, gateway_exclusive, gateway_parallel, gateway_inclusive, intermediate_event, subprocess
     position: Dict[str, float]
     data: Dict[str, Any]
+    
+class BPMNGateway(BaseModel):
+    gateway_type: str  # exclusive, parallel, inclusive, event_based
+    condition: Optional[str] = None
+    default_flow: Optional[str] = None
+    
+class BPMNEvent(BaseModel):
+    event_type: str  # start, end, intermediate, timer, message, signal
+    trigger: Optional[str] = None
+    time_duration: Optional[str] = None
+    
+class FHIRResource(BaseModel):
+    resource_type: str  # PlanDefinition, ActivityDefinition, Task, Appointment, Observation
+    resource_id: Optional[str] = None
+    reference: Optional[str] = None
+    coding: Optional[Dict[str, Any]] = None
     
 class CareGap(BaseModel):
     gap_type: str  # missing_intervention, delayed_treatment, guideline_violation
