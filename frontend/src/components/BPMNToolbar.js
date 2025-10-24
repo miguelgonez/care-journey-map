@@ -107,27 +107,34 @@ const BPMNToolbar = ({ onAddNode }) => {
               borderBottom: '1px solid #E5E7EB',
               background: '#F5F7FA'
             }}>
-              {Object.keys(bpmnElements).map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  style={{
-                    flex: 1,
-                    padding: '8px 12px',
-                    background: activeCategory === category ? '#FFFFFF' : 'transparent',
-                    border: 'none',
-                    borderBottom: activeCategory === category ? '2px solid #0A74DA' : '2px solid transparent',
-                    fontSize: '11px',
-                    fontWeight: activeCategory === category ? '500' : '400',
-                    color: activeCategory === category ? '#0A74DA' : '#6B7280',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease',
-                    textTransform: 'capitalize'
-                  }}
-                >
-                  {category}
-                </button>
-              ))}
+              {Object.keys(bpmnElements).map((category) => {
+                const categoryLabels = {
+                  events: 'Eventos',
+                  tasks: 'Tareas',
+                  gateways: 'Compuertas',
+                  clinical: 'Clínico'
+                };
+                return (
+                  <button
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                    style={{
+                      flex: 1,
+                      padding: '8px 12px',
+                      background: activeCategory === category ? '#FFFFFF' : 'transparent',
+                      border: 'none',
+                      borderBottom: activeCategory === category ? '2px solid #0A74DA' : '2px solid transparent',
+                      fontSize: '11px',
+                      fontWeight: activeCategory === category ? '500' : '400',
+                      color: activeCategory === category ? '#0A74DA' : '#6B7280',
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    {categoryLabels[category]}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Elements list */}
