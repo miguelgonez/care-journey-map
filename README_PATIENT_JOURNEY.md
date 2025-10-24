@@ -241,6 +241,14 @@ curl -X POST http://localhost:8001/api/journeys \
 - Click en cualquier plantilla
 - Se creará una copia que puedes modificar
 
+### 7. **Analizar Métricas y Outcomes (NUEVO)** 📊
+- Click en **"Analítica & Métricas"** en el header
+- Explora las tres pestañas:
+  - **Métricas & KPIs**: Visualiza tiempos, adherencia y satisfacción
+  - **Brechas de Atención**: Identifica care gaps con severidad y acciones
+  - **Outcomes Clínicos**: Monitorea resultados con tendencias
+- Exporta reportes en JSON para análisis externo
+
 ## 🎯 Mejores Prácticas Implementadas
 
 1. **Mapeo de Touchpoints**: Identifica todos los puntos de contacto paciente-sistema
