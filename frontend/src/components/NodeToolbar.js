@@ -4,26 +4,66 @@ const NodeToolbar = ({ onAddNode }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const nodeTypes = [
-    { type: 'registration', label: 'Registro/Admisión', icon: '📋', color: 'bg-green-100 hover:bg-green-200 border-green-300' },
-    { type: 'consultation', label: 'Consulta', icon: '👨‍⚕️', color: 'bg-blue-100 hover:bg-blue-200 border-blue-300' },
-    { type: 'diagnosis', label: 'Diagnóstico', icon: '🔍', color: 'bg-purple-100 hover:bg-purple-200 border-purple-300' },
-    { type: 'treatment', label: 'Tratamiento', icon: '💊', color: 'bg-orange-100 hover:bg-orange-200 border-orange-300' },
-    { type: 'followup', label: 'Seguimiento', icon: '✅', color: 'bg-cyan-100 hover:bg-cyan-200 border-cyan-300' },
-    { type: 'discharge', label: 'Alta', icon: '🎉', color: 'bg-pink-100 hover:bg-pink-200 border-pink-300' },
-    { type: 'custom', label: 'Personalizado', icon: '⭐', color: 'bg-gray-100 hover:bg-gray-200 border-gray-300' },
+    { type: 'registration', label: 'Registro', color: '#10B981' },
+    { type: 'consultation', label: 'Consulta', color: '#0A74DA' },
+    { type: 'diagnosis', label: 'Diagnóstico', color: '#7B68EE' },
+    { type: 'treatment', label: 'Tratamiento', color: '#F59E0B' },
+    { type: 'followup', label: 'Seguimiento', color: '#06B6D4' },
+    { type: 'discharge', label: 'Alta', color: '#EC4899' },
+    { type: 'custom', label: 'Personalizado', color: '#9CA3AF' },
   ];
 
   return (
-    <div className="absolute top-4 left-4 z-10">
-      <div className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 flex justify-between items-center">
-          <h3 className="text-white font-semibold text-sm">Agregar Nodo</h3>
+    <div style={{
+      position: 'absolute',
+      top: '16px',
+      left: '16px',
+      zIndex: 10
+    }}>
+      <div style={{
+        background: '#FFFFFF',
+        borderRadius: '8px',
+        boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.04)',
+        border: '1px solid #E5E7EB',
+        overflow: 'hidden',
+        minWidth: '160px'
+      }}>
+        <div style={{
+          padding: '12px 16px',
+          borderBottom: '1px solid #E5E7EB',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <h3 style={{
+            fontSize: '13px',
+            fontWeight: '500',
+            color: '#1A1A1A',
+            margin: 0,
+            letterSpacing: '-0.01em'
+          }}>
+            Agregar Etapa
+          </h3>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white hover:bg-blue-800 rounded p-1"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              padding: '4px',
+              cursor: 'pointer',
+              color: '#6B7280',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
           >
             <svg
-              className={`w-4 h-4 transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+              style={{
+                width: '14px',
+                height: '14px',
+                transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                transition: 'transform 0.15s ease'
+              }}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -34,15 +74,39 @@ const NodeToolbar = ({ onAddNode }) => {
         </div>
         
         {isOpen && (
-          <div className="p-3 space-y-2 max-w-xs">
+          <div style={{ padding: '8px' }}>
             {nodeTypes.map((node) => (
               <button
                 key={node.type}
                 onClick={() => onAddNode(node.type)}
-                className={`w-full text-left px-3 py-2 rounded-md border ${node.color} transition-colors flex items-center gap-2 text-sm font-medium text-gray-700`}
                 data-testid={`add-node-${node.type}`}
+                style={{
+                  width: '100%',
+                  textAlign: 'left',
+                  padding: '8px 12px',
+                  background: 'transparent',
+                  border: 'none',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  transition: 'background 0.15s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '12px',
+                  color: '#1A1A1A',
+                  fontWeight: '400',
+                  marginBottom: '2px'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#F5F7FA'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
               >
-                <span className="text-lg">{node.icon}</span>
+                <span style={{
+                  width: '3px',
+                  height: '16px',
+                  borderRadius: '2px',
+                  background: node.color,
+                  flexShrink: 0
+                }}></span>
                 {node.label}
               </button>
             ))}
