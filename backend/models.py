@@ -62,6 +62,9 @@ class JourneyCreate(BaseModel):
     care_gaps: Optional[List[CareGap]] = []
     metrics: Optional[List[Metric]] = []
     clinical_outcomes: Optional[List[ClinicalOutcome]] = []
+    bpmn_version: str = "2.0"
+    fhir_version: str = "R4"
+    fhir_plan_definition_id: Optional[str] = None
 
 class JourneyUpdate(BaseModel):
     name: Optional[str] = None
@@ -71,6 +74,7 @@ class JourneyUpdate(BaseModel):
     care_gaps: Optional[List[CareGap]] = None
     metrics: Optional[List[Metric]] = None
     clinical_outcomes: Optional[List[ClinicalOutcome]] = None
+    fhir_plan_definition_id: Optional[str] = None
 
 class JourneyResponse(BaseModel):
     id: str
@@ -81,6 +85,9 @@ class JourneyResponse(BaseModel):
     care_gaps: Optional[List[CareGap]] = []
     metrics: Optional[List[Metric]] = []
     clinical_outcomes: Optional[List[ClinicalOutcome]] = []
+    bpmn_version: str = "2.0"
+    fhir_version: str = "R4"
+    fhir_plan_definition_id: Optional[str] = None
     created_at: datetime
     updated_at: datetime
     
@@ -93,3 +100,5 @@ class TemplateResponse(BaseModel):
     description: str
     nodes: List[NodeData]
     edges: List[EdgeData]
+    bpmn_compliant: bool = True
+    fhir_compliant: bool = True
