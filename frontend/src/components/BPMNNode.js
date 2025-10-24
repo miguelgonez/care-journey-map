@@ -90,7 +90,7 @@ const BPMNNode = ({ data, selected }) => {
   }
 
   // Gateway Exclusive (rombo)
-  if (data.bpmn_type === 'gateway_exclusive') {
+  if (bpmnType === 'gateway_exclusive') {
     return (
       <div className={nodeClass} data-testid={`bpmn-node-gateway`}>
         <Handle 
