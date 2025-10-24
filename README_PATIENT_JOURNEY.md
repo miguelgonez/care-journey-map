@@ -1,0 +1,258 @@
+# 🏥 Patient Journey Designer
+
+Una aplicación completa para diseñar y gestionar **Patient Journeys** (Viajes del Paciente) utilizando React Flow, adaptada desde [xyflow/xyflow](https://github.com/xyflow/xyflow).
+
+## 📋 Características Principales
+
+### 🎨 Diseño Visual Interactivo
+- **Canvas interactivo** con React Flow para diseñar flujos de paciente
+- **Drag & Drop** de nodos y conexiones
+- **7 tipos de nodos** predefinidos con iconos y colores específicos:
+  - 📋 Registro/Admisión (verde)
+  - 👨‍⚕️ Consulta (azul)
+  - 🔬 Diagnóstico (morado)
+  - 💊 Tratamiento (naranja)
+  - ✅ Seguimiento (cyan)
+  - 🎉 Alta (rosa)
+  - ⭐ Personalizado (gris)
+
+### 📊 Información Completa del Patient Journey
+Cada nodo captura información según mejores prácticas:
+- **Información Básica**: Título, descripción
+- **Detalles Operacionales**: Duración, departamento, responsable, touchpoint/canal
+- **Experiencia del Paciente**: Emociones, pain points, oportunidades de mejora
+- **Recursos**: Equipamiento, personal, sistemas necesarios
+
+### 🗂️ Gestión de Journeys
+- **Menú lateral tipo Streamlit** con dos pestañas:
+  - **Mis Journeys**: Lista de todos los journeys guardados
+  - **Plantillas**: Templates predefinidos para comenzar rápidamente
+- **CRUD completo**: Crear, leer, actualizar y eliminar journeys
+- **Auto-guardado** con indicador de cambios pendientes
+- **Exportar a JSON** para compartir o respaldo
+
+### 🎯 Plantillas Predefinidas
+1. **Journey Básico de Paciente Ambulatorio**
+   - Flujo estándar con 5 etapas
+   - Desde registro hasta seguimiento
+
+2. **Journey de Cirugía Programada**
+   - Flujo quirúrgico completo
+   - Desde consulta inicial hasta alta y seguimiento post-operatorio
+
+## 🏗️ Arquitectura Técnica
+
+### Backend
+- **Framework**: FastAPI (Python)
+- **Base de Datos**: SQLite3 con SQLAlchemy ORM
+- **Características**:
+  - APIs RESTful con validación Pydantic
+  - Almacenamiento eficiente en SQLite (sin dependencias externas)
+  - Documentación automática en `/docs`
+
+### Frontend
+- **Framework**: React 19
+- **Librería de Flujos**: @xyflow/react (React Flow v12)
+- **UI Components**: Radix UI + Tailwind CSS
+- **Características**:
+  - Componentes reutilizables
+  - Estado local con React Hooks
+  - Diseño responsivo y profesional
+
+## 📁 Estructura del Proyecto
+
+```
+/app/
+├── backend/
+│   ├── server.py              # FastAPI application
+│   ├── database.py            # SQLAlchemy setup + models
+│   ├── models.py              # Pydantic models
+│   ├── patient_journeys.db    # SQLite database
+│   └── requirements.txt       # Python dependencies
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.js            # Main application component
+│   │   ├── App.css           # Custom styles
+│   │   └── components/
+│   │       ├── PatientJourneyDesigner.js  # Main canvas
+│   │       ├── PatientJourneyNode.js      # Custom node component
+│   │       ├── NodeToolbar.js             # Add node toolbar
+│   │       ├── EditNodeModal.js           # Edit node modal
+│   │       └── Sidebar.js                 # Streamlit-style sidebar
+│   └── package.json
+│
+└── README_PATIENT_JOURNEY.md
+```
+
+## 🚀 Instalación y Uso
+
+### Prerequisitos
+- Python 3.11+
+- Node.js 18+
+- Yarn
+
+### Backend Setup
+
+```bash
+cd /app/backend
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Iniciar servidor (auto-crea la base de datos)
+uvicorn server:app --host 0.0.0.0 --port 8001 --reload
+```
+
+### Frontend Setup
+
+```bash
+cd /app/frontend
+
+# Instalar dependencias
+yarn install
+
+# Iniciar aplicación
+yarn start
+```
+
+### Acceso
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8001/api
+- **API Docs**: http://localhost:8001/docs
+
+## 🔌 API Endpoints
+
+### Journeys
+- `GET /api/journeys` - Obtener todos los journeys
+- `POST /api/journeys` - Crear nuevo journey
+- `GET /api/journeys/{id}` - Obtener journey específico
+- `PUT /api/journeys/{id}` - Actualizar journey
+- `DELETE /api/journeys/{id}` - Eliminar journey
+
+### Templates
+- `GET /api/templates` - Obtener plantillas predefinidas
+
+### Ejemplo de Request
+
+```bash
+# Crear nuevo journey
+curl -X POST http://localhost:8001/api/journeys \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Mi Journey",
+    "description": "Descripción del journey",
+    "nodes": [],
+    "edges": []
+  }'
+```
+
+## 🎨 Uso de la Aplicación
+
+### 1. Crear un Nuevo Journey
+- Click en **"Nuevo Journey"** en el sidebar
+- Ingresa nombre y descripción
+- Click en **"Crear"**
+
+### 2. Agregar Nodos
+- Usa el toolbar en la esquina superior izquierda
+- Click en el tipo de nodo que deseas agregar
+- El nodo aparecerá en el canvas
+
+### 3. Conectar Nodos
+- Arrastra desde el punto de conexión derecho (source) de un nodo
+- Suelta en el punto de conexión izquierdo (target) de otro nodo
+- Las conexiones se crean automáticamente con animación
+
+### 4. Editar Nodos
+- Click en un nodo para seleccionarlo
+- Aparecerá un panel de información en la esquina inferior izquierda
+- Click en **"Editar"** para abrir el formulario completo
+- Completa todos los campos según necesites
+- Click en **"Guardar Cambios"**
+
+### 5. Guardar y Exportar
+- Los cambios se detectan automáticamente
+- Click en **"Guardar Cambios"** (botón azul superior derecha)
+- Usa **"Exportar JSON"** para descargar el journey
+
+### 6. Usar Plantillas
+- Ve a la pestaña **"Plantillas"** en el sidebar
+- Click en cualquier plantilla
+- Se creará una copia que puedes modificar
+
+## 🎯 Mejores Prácticas Implementadas
+
+1. **Mapeo de Touchpoints**: Identifica todos los puntos de contacto paciente-sistema
+2. **Análisis Emocional**: Captura emociones del paciente en cada etapa
+3. **Identificación de Pain Points**: Documenta problemas y frustraciones
+4. **Oportunidades de Mejora**: Registra ideas para optimizar la experiencia
+5. **Gestión de Recursos**: Identifica equipamiento y personal necesario
+6. **Responsabilidades Claras**: Asigna responsables a cada etapa
+7. **Métricas Temporales**: Documenta duración de cada proceso
+
+## 🔒 Base de Datos
+
+El sistema usa **SQLite3** para máxima portabilidad:
+- Archivo: `/app/backend/patient_journeys.db`
+- Sin configuración adicional necesaria
+- Respaldo simple (copiar el archivo .db)
+- Fácil migración a PostgreSQL/MySQL si es necesario
+
+## 🎨 Personalización de Colores
+
+Los colores están definidos en `/app/frontend/src/App.css`:
+
+```css
+.node-registration { border-color: #10b981; } /* Verde */
+.node-consultation { border-color: #3b82f6; } /* Azul */
+.node-diagnosis    { border-color: #8b5cf6; } /* Morado */
+.node-treatment    { border-color: #f59e0b; } /* Naranja */
+.node-followup     { border-color: #06b6d4; } /* Cyan */
+.node-discharge    { border-color: #ec4899; } /* Rosa */
+```
+
+## 🧪 Testing
+
+El proyecto incluye tests básicos de API:
+
+```bash
+bash /tmp/test_patient_journey.sh
+```
+
+## 🚀 Deployment
+
+### Producción
+1. Configurar variables de entorno
+2. Usar Gunicorn para el backend
+3. Build de producción del frontend
+4. Configurar CORS apropiadamente
+5. Considerar migración a PostgreSQL para mayor concurrencia
+
+## 📝 Roadmap Futuro
+
+- [ ] Versionado de journeys
+- [ ] Colaboración en tiempo real
+- [ ] Exportar a PDF/PNG
+- [ ] Analytics y métricas
+- [ ] Integración con sistemas hospitalarios
+- [ ] Multi-idioma
+- [ ] Roles y permisos
+
+## 🤝 Contribuciones
+
+Este proyecto es una adaptación de [xyflow/xyflow](https://github.com/xyflow/xyflow) específicamente para el diseño de Patient Journeys en el sector salud.
+
+## 📄 Licencia
+
+MIT License - Ver archivo LICENSE
+
+## 🙏 Agradecimientos
+
+- [xyflow](https://xyflow.com) - Por la excelente librería React Flow
+- Comunidad de diseño de experiencia del paciente
+- Profesionales de la salud que inspiraron las mejores prácticas
+
+---
+
+**Desarrollado con ❤️ para mejorar la experiencia del paciente**
