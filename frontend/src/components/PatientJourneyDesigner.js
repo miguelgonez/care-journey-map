@@ -156,27 +156,60 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
     <div className="w-full h-full relative" data-testid="patient-journey-designer">
       <NodeToolbar onAddNode={addNode} />
       
-      <div className="absolute top-4 right-4 z-10 flex gap-2">
+      <div style={{
+        position: 'absolute',
+        top: '16px',
+        right: '16px',
+        zIndex: 10,
+        display: 'flex',
+        gap: '8px'
+      }}>
         <button
           onClick={exportToJSON}
-          className="px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 text-sm font-medium text-gray-700 flex items-center gap-2"
+          style={{
+            padding: '8px 16px',
+            background: '#FFFFFF',
+            border: '1px solid #E5E7EB',
+            borderRadius: '6px',
+            fontSize: '13px',
+            fontWeight: '400',
+            color: '#1A1A1A',
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+            letterSpacing: '-0.005em'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = '#F5F7FA';
+            e.currentTarget.style.borderColor = '#D1D5DB';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = '#FFFFFF';
+            e.currentTarget.style.borderColor = '#E5E7EB';
+          }}
           data-testid="export-journey-btn"
         >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
           Exportar JSON
         </button>
         
         {hasChanges && (
           <button
             onClick={handleSave}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-sm hover:bg-blue-700 text-sm font-medium flex items-center gap-2"
+            style={{
+              padding: '8px 16px',
+              background: '#0A74DA',
+              border: 'none',
+              borderRadius: '6px',
+              fontSize: '13px',
+              fontWeight: '400',
+              color: '#FFFFFF',
+              cursor: 'pointer',
+              transition: 'background 0.15s ease',
+              letterSpacing: '-0.005em'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.background = '#0860B8'}
+            onMouseLeave={(e) => e.currentTarget.style.background = '#0A74DA'}
             data-testid="save-journey-btn"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
             Guardar Cambios
           </button>
         )}
