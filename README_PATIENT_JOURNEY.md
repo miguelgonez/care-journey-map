@@ -334,17 +334,43 @@ bash /tmp/test_patient_journey.sh
 
 ## 📝 Roadmap Futuro
 
+- [x] Dashboard de analítica con métricas y KPIs ✅
+- [x] Sistema de care gaps con alertas ✅
+- [x] Tracking de outcomes clínicos ✅
+- [ ] AI-powered care gap detection automática
+- [ ] Integración con EHR real-time
+- [ ] Predictive analytics para identificar riesgos
 - [ ] Versionado de journeys
 - [ ] Colaboración en tiempo real
 - [ ] Exportar a PDF/PNG
-- [ ] Analytics y métricas
-- [ ] Integración con sistemas hospitalarios
 - [ ] Multi-idioma
 - [ ] Roles y permisos
+- [ ] Mobile app para visualización
+
+## 🔬 Referencias y Evidencia
+
+### Artículo Principal:
+- **Mansi, C., & Ibrahim, A.M. (2025)**. "From Promise to Proof: Redesigning Clinical Workflows with Generative AI". *NEJM AI Sponsored*. https://ai.nejm.org/doi/full/10.1056/AI-S2501083
+
+### Conceptos Clave Implementados:
+1. **Workflow Integration**: AI embedded directly into clinical workflows
+2. **Care Gap Closure**: Identifying patients who met criteria but hadn't been referred
+3. **Time Reduction**: Chart review time cut by more than half
+4. **Guideline Adherence**: Cross-referencing data against established guidelines
+5. **Measurable ROI**: Minutes, dollars, and outcomes
+
+### Evidencia de Impacto:
+- TriHealth PE study: 74% reduction in in-hospital mortality
+- Viz HCM: 17 new HCM cases found in 145,000+ ECG screenings
+- Cardiology: 45 minutes → 5 minutes chart review time
 
 ## 🤝 Contribuciones
 
-Este proyecto es una adaptación de [xyflow/xyflow](https://github.com/xyflow/xyflow) específicamente para el diseño de Patient Journeys en el sector salud.
+Este proyecto combina:
+- [xyflow](https://xyflow.com) - Excelente librería React Flow  
+- **NEJM AI 2025** - Insights sobre redesigning clinical workflows
+- Mejores prácticas de diseño de patient journey
+- Evidencia de estudios clínicos reales (Viz.ai, TriHealth, etc.)
 
 ## 📄 Licencia
 
