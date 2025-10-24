@@ -264,35 +264,96 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
       </ReactFlow>
 
       {selectedNode && (
-        <div className="absolute bottom-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-sm z-10 border border-gray-200">
-          <div className="flex justify-between items-start mb-3">
-            <h3 className="font-semibold text-gray-900">{selectedNode.data.label}</h3>
+        <div style={{
+          position: 'absolute',
+          bottom: '16px',
+          left: '16px',
+          background: '#FFFFFF',
+          borderRadius: '8px',
+          border: '1px solid #E5E7EB',
+          padding: '16px',
+          maxWidth: '320px',
+          zIndex: 10,
+          boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.04)'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            marginBottom: '12px'
+          }}>
+            <h3 style={{
+              fontSize: '14px',
+              fontWeight: '500',
+              color: '#1A1A1A',
+              letterSpacing: '-0.01em',
+              margin: 0
+            }}>
+              {selectedNode.data.label}
+            </h3>
             <button
               onClick={() => setSelectedNode(null)}
-              className="text-gray-400 hover:text-gray-600"
+              style={{
+                background: 'transparent',
+                border: 'none',
+                padding: '2px',
+                cursor: 'pointer',
+                color: '#9CA3AF',
+                display: 'flex',
+                alignItems: 'center'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#6B7280'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#9CA3AF'}
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg style={{ width: '16px', height: '16px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           
-          <div className="space-y-2 text-sm text-gray-600 mb-4">
+          <div style={{
+            fontSize: '12px',
+            color: '#6B7280',
+            marginBottom: '16px',
+            lineHeight: '1.5'
+          }}>
             {selectedNode.data.description && (
-              <p><strong>Descripción:</strong> {selectedNode.data.description}</p>
+              <div style={{ marginBottom: '6px' }}>
+                <span style={{ color: '#1A1A1A', fontWeight: '500' }}>Descripción: </span>
+                {selectedNode.data.description}
+              </div>
             )}
             {selectedNode.data.duration && (
-              <p><strong>Duración:</strong> {selectedNode.data.duration}</p>
+              <div style={{ marginBottom: '6px' }}>
+                <span style={{ color: '#1A1A1A', fontWeight: '500' }}>Duración: </span>
+                {selectedNode.data.duration}
+              </div>
             )}
             {selectedNode.data.responsible && (
-              <p><strong>Responsable:</strong> {selectedNode.data.responsible}</p>
+              <div>
+                <span style={{ color: '#1A1A1A', fontWeight: '500' }}>Responsable: </span>
+                {selectedNode.data.responsible}
+              </div>
             )}
           </div>
           
-          <div className="flex gap-2">
+          <div style={{ display: 'flex', gap: '8px' }}>
             <button
               onClick={() => onEditNode(selectedNode)}
-              className="flex-1 px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm font-medium"
+              style={{
+                flex: 1,
+                padding: '8px 12px',
+                background: '#0A74DA',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '6px',
+                fontSize: '12px',
+                fontWeight: '400',
+                cursor: 'pointer',
+                transition: 'background 0.15s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = '#0860B8'}
+              onMouseLeave={(e) => e.currentTarget.style.background = '#0A74DA'}
               data-testid="edit-node-btn"
             >
               Editar
@@ -303,7 +364,26 @@ const PatientJourneyDesigner = ({ journey, onSave }) => {
                   onDeleteNode(selectedNode.id);
                 }
               }}
-              className="flex-1 px-3 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm font-medium"
+              style={{
+                flex: 1,
+                padding: '8px 12px',
+                background: 'transparent',
+                color: '#EF4444',
+                border: '1px solid #FCA5A5',
+                borderRadius: '6px',
+                fontSize: '12px',
+                fontWeight: '400',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#FEE2E2';
+                e.currentTarget.style.borderColor = '#EF4444';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.borderColor = '#FCA5A5';
+              }}
               data-testid="delete-node-btn"
             >
               Eliminar
