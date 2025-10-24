@@ -166,37 +166,69 @@ function App() {
               onSave={(nodes, edges) => saveJourney(currentJourney.id, nodes, edges)}
             />
           ) : (
-            <div className="flex items-center justify-center h-full">
-              <div className="text-center">
-                <div className="mb-6">
-                  <svg
-                    className="mx-auto h-24 w-24 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
+            <div className="flex items-center justify-center h-full" style={{ background: '#FAFBFC' }}>
+              <div className="text-center" style={{ maxWidth: '400px', padding: '32px' }}>
+                <div style={{ marginBottom: '24px' }}>
+                  <div style={{
+                    width: '64px',
+                    height: '64px',
+                    margin: '0 auto',
+                    borderRadius: '12px',
+                    background: '#F5F7FA',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <svg
+                      style={{ width: '32px', height: '32px', color: '#9CA3AF' }}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 style={{
+                  fontSize: '16px',
+                  fontWeight: '500',
+                  color: '#1A1A1A',
+                  marginBottom: '8px',
+                  letterSpacing: '-0.01em'
+                }}>
                   No hay journey seleccionado
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p style={{
+                  fontSize: '13px',
+                  color: '#6B7280',
+                  marginBottom: '24px',
+                  lineHeight: '1.6'
+                }}>
                   Crea un nuevo patient journey o selecciona uno existente del menú lateral
                 </p>
                 <button
                   onClick={() => createNewJourney('Nuevo Patient Journey', 'Descripción del journey')}
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  style={{
+                    padding: '10px 20px',
+                    background: '#0A74DA',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    borderRadius: '6px',
+                    fontSize: '13px',
+                    fontWeight: '400',
+                    cursor: 'pointer',
+                    transition: 'background 0.15s ease',
+                    letterSpacing: '-0.005em'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#0860B8'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#0A74DA'}
                   data-testid="create-new-journey-btn"
                 >
-                  <svg className="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
                   Crear Nuevo Journey
                 </button>
               </div>
