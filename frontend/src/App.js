@@ -174,6 +174,17 @@ function App() {
           )}
         </main>
       </div>
+
+      {showAnalytics && currentJourney && (
+        <AnalyticsDashboard
+          journey={currentJourney}
+          onClose={() => setShowAnalytics(false)}
+          onUpdate={(updatedJourney) => {
+            setCurrentJourney(updatedJourney);
+            setJourneys(journeys.map(j => j.id === updatedJourney.id ? updatedJourney : j));
+          }}
+        />
+      )}
     </div>
   );
 }
