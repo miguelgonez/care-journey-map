@@ -1,6 +1,37 @@
-# 🏥 Patient Journey Designer
+# 🏥 Patient Journey Designer - Enhanced with NEJM AI Insights
 
-Una aplicación completa para diseñar y gestionar **Patient Journeys** (Viajes del Paciente) utilizando React Flow, adaptada desde [xyflow/xyflow](https://github.com/xyflow/xyflow).
+Una aplicación completa para diseñar y gestionar **Patient Journeys** (Viajes del Paciente) utilizando React Flow, adaptada desde [xyflow/xyflow](https://github.com/xyflow/xyflow) e **mejorada con conceptos de NEJM AI** sobre redesigning clinical workflows con AI generativa.
+
+## 🆕 Mejoras Basadas en NEJM AI (2025)
+
+Inspirados por el artículo ["From Promise to Proof: Redesigning Clinical Workflows with Generative AI"](https://ai.nejm.org/doi/full/10.1056/AI-S2501083), hemos integrado:
+
+### 1. **Dashboard de Analítica Avanzada** 📊
+- **Métricas & KPIs**: Seguimiento de tiempos de revisión, adherencia a protocolos, satisfacción del paciente
+- **Brechas de Atención (Care Gaps)**: Identificación automática de:
+  - Intervenciones faltantes
+  - Tratamientos retrasados  
+  - Violaciones de guidelines clínicas
+- **Outcomes Clínicos**: Monitoreo de resultados medibles:
+  - Tasas de mortalidad
+  - Tasas de readmisión
+  - Tiempo a tratamiento
+  - Satisfacción del paciente
+
+### 2. **Enfoque en ROI Medible**
+- Métricas de tiempo: Chart review time, time to treatment
+- Indicadores de calidad: Guideline adherence, care gap closure
+- Outcomes financieros: Improved coding, reduced readmissions
+
+### 3. **Transparencia y Referencias**
+- Cada brecha de atención vinculada a guidelines específicas
+- Referencias a guías clínicas (AHA/ACC, ESC, etc.)
+- Acciones recomendadas basadas en evidencia
+
+### 4. **Workflow Integration**
+- No es una herramienta aislada, sino integrada al proceso de diseño del journey
+- Métricas contextuales a cada etapa del patient journey
+- Análisis holístico del flujo completo de atención
 
 ## 📋 Características Principales
 
