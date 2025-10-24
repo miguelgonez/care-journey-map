@@ -43,12 +43,18 @@ class JourneyCreate(BaseModel):
     description: Optional[str] = None
     nodes: List[NodeData] = []
     edges: List[EdgeData] = []
+    care_gaps: Optional[List[CareGap]] = []
+    metrics: Optional[List[Metric]] = []
+    clinical_outcomes: Optional[List[ClinicalOutcome]] = []
 
 class JourneyUpdate(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
     nodes: Optional[List[NodeData]] = None
     edges: Optional[List[EdgeData]] = None
+    care_gaps: Optional[List[CareGap]] = None
+    metrics: Optional[List[Metric]] = None
+    clinical_outcomes: Optional[List[ClinicalOutcome]] = None
 
 class JourneyResponse(BaseModel):
     id: str
@@ -56,6 +62,9 @@ class JourneyResponse(BaseModel):
     description: Optional[str]
     nodes: List[NodeData]
     edges: List[EdgeData]
+    care_gaps: Optional[List[CareGap]] = []
+    metrics: Optional[List[Metric]] = []
+    clinical_outcomes: Optional[List[ClinicalOutcome]] = []
     created_at: datetime
     updated_at: datetime
     
