@@ -78,6 +78,9 @@ async def get_all_journeys(db: Session = Depends(get_db)):
             description=j.description,
             nodes=[NodeData(**node) for node in json.loads(j.nodes_data)],
             edges=[EdgeData(**edge) for edge in json.loads(j.edges_data)],
+            care_gaps=[CareGap(**gap) for gap in json.loads(j.care_gaps_data or "[]")],
+            metrics=[Metric(**metric) for metric in json.loads(j.metrics_data or "[]")],
+            clinical_outcomes=[ClinicalOutcome(**outcome) for outcome in json.loads(j.outcomes_data or "[]")],
             created_at=j.created_at,
             updated_at=j.updated_at
         )
